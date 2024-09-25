@@ -27,13 +27,13 @@ let score = 0;
 /*________Funksjoner____________*/
 
 function quiz(){
- spørmålIndex = 0;
+ spørsmålIndex = 0;
  score = 0;
  displayQuestion();
 }
 
 function displayQuestion() {
-    let currentQuestion = questions[spørmålIndex];
+    let currentQuestion = questions[spørsmålIndex];
 
     questionText.innerHTML = currentQuestion.spørsmål;
 
@@ -50,8 +50,10 @@ function displayQuestion() {
     }
 }
 
-function svarSkjekk(){
-    spørmålIndex++
-    console.log(spørmålIndex)
+function svarSkjekk(event){
+    if (event.target.textContent == questions[spørsmålIndex].riktigSvar){
+      console.log("Riktig!")}
+    else{
+     console.log("feil")
+        }
 }
-displayQuestion()
