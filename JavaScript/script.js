@@ -16,11 +16,16 @@ const valgKnapper = document.getElementById("options");
             questionText.style.display="none";
             
             const myText= document.getElementById("myText");
-            myText.innerHTML= "Gratulerer du fikk " + score + " poeng"
-
-
-    
-            console.log("kys")
+            myText.innerHTML= "Gratulerer du fikk\n " + score + " poeng! Vill du spille igjen?";
+            const rpScreen= document.getElementById("endScreen");
+            rpScreen.style.backgroundColor = "red"
+            
+            const playAgain = document.createElement("button");
+            playAgain.innerHTML = "Play again"
+            document.getElementById("replay").append(playAgain)
+            playAgain.addEventListener("click", ()=>{
+             window.location.reload();
+            })
         }
        });
 
@@ -83,5 +88,4 @@ function svarSkjekk(event){
         button.removeEventListener("click", svarSkjekk);
     });
 }
-
 quiz();
