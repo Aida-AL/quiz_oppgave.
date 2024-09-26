@@ -3,6 +3,7 @@ const questionText =document.getElementById("question");
 const nesteKnapp = document.getElementById("next");
 const valgKnapper = document.getElementById("options");
 
+
 /*_________________________________________*/
 
     nesteKnapp.addEventListener("click" , event => {
@@ -10,6 +11,15 @@ const valgKnapper = document.getElementById("options");
         if (spørmålIndex < questions.length){
             displayQuestion();}
         else {
+            document.getElementById("optionContainer").style.display = "none";
+            nesteKnapp.style.display= "none";
+            questionText.style.display="none";
+            
+            const myText= document.getElementById("myText");
+            myText.innerHTML= "Gratulerer du fikk " + score + " poeng"
+
+
+    
             console.log("kys")
         }
        });

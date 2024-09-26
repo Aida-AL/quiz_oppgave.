@@ -14,7 +14,9 @@
  height: 80%;
  /*----------------*/
 }
-
+#myText{
+    color: aqua;
+}
 #optionContainer{
  background-color: blueviolet;
  position: absolute;
