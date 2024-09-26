@@ -5,9 +5,16 @@ const valgKnapper = document.getElementById("options");
 
 /*_________________________________________*/
 
-nesteKnapp.addEventListener("click" , event => {
-    
-   });
+    nesteKnapp.addEventListener("click" , event => {
+        spørmålIndex++
+        if (spørmålIndex < questions.length){
+            displayQuestion();}
+        else {
+            console.log("kys")
+        }
+       });
+
+
 /*_________Array_med_spørsmål___________________*/
 
 const questions = [{
@@ -27,13 +34,13 @@ let score = 0;
 /*________Funksjoner____________*/
 
 function quiz(){
- spørsmålIndex = 0;
+ spørmålIndex = 0;
  score = 0;
  displayQuestion();
 }
 
 function displayQuestion() {
-    let currentQuestion = questions[spørsmålIndex];
+    let currentQuestion = questions[spørmålIndex];
 
     questionText.innerHTML = currentQuestion.spørsmål;
 
@@ -46,14 +53,25 @@ function displayQuestion() {
 
         button.setAttribute("class", "valg");
         valgKnapper.appendChild(button);
-        button.addEventListener("click",svarSkjekk)
+        button.addEventListener("click",svarSkjekk);
+         
+
     }
 }
 
+
 function svarSkjekk(event){
-    if (event.target.textContent == questions[spørsmålIndex].riktigSvar){
-      console.log("Riktig!")}
-    else{
-     console.log("feil")
-        }
+    if (event.target.textContent === questions[spørmålIndex].riktigSvar) {
+        event.target.style.backgroundColor = "lightgreen";
+        score++
+    } else {
+        event.target.style.backgroundColor = "red"; 
+    }
+
+    const buttons = document.querySelectorAll(".valg");
+    buttons.forEach(button => {
+        button.removeEventListener("click", svarSkjekk);
+    });
 }
+
+quiz();
