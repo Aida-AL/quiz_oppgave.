@@ -30,16 +30,56 @@ const currentPicture =document.getElementById("myPicture")
 /*_________Array_med_spørsmål___________________*/
 
 const questions = [{
-    spørsmål:"How many members make up the fellowship of the ring?",
+    spørsmål:"In LOTR, how many members make up the fellowship of the ring?",
         svar:["10","8","7","9"],
         riktigSvar:"9",
         picture: "../bilder/Gandalf.jpg"
 
-}  ,{
-    spørsmål:"spørsmål 2",
-    svar:["e","f","g","h"],
-    riktigSvar:"h"  ,
+},{
+    spørsmål:"Who is the scarecrow in howls moving castle?",
+    svar:["Howl","Prince Justin","Markl","Calcifer"],
+    riktigSvar:"Prince Justin"  ,
     picture: "../bilder/movingcastle.jpg"
+},{
+    spørsmål:"What sport does the queen play in Alice in wonderland?",
+    svar:["Cricket","Golf","Putt-putt","Badminton"],
+    riktigSvar:"Cricket",
+    picture: "../bilder/alice-in-wonderland.jpg"
+},{
+    spørsmål:"How many Pirates of the Caribbean movies are there?",
+    svar:["5","6","4","7"],
+    riktigSvar:"5"  ,
+    picture: "../bilder/sea.jpg"
+},{
+    spørsmål:"Who is Spidermans girlfriend?",
+    svar:["Julia","Jessica May","Marilyn","Mary Jane"],
+    riktigSvar:"Mary Jane"  ,
+    picture: "../bilder/new_york_city.jpg"
+},{
+    spørsmål:"Who's planet does The little prince visit first?",
+    svar:["The conceited man","The king","The businessman","The geographer"],
+    riktigSvar:"The king" ,
+    picture: "../bilder/la-petit-prince.jpg"
+},{
+    spørsmål:"Who is the youngest girl in My neightbor Totoro?",
+    svar:["Rin","Aoi","Satsuki","Mei"],
+    riktigSvar:"Mei",
+    picture: "../bilder/totoro.jpg"
+},{
+    spørsmål:"What is Deadpools real name?",
+    svar:["Wade Wilson","Ryan Reynolds","James Howlett","Hugh Jackman"],
+    riktigSvar:"Wade Wilson"  ,
+    picture: "../bilder/renolds.jpg"
+},{
+    spørsmål:"Hvilket år kom Flåklypa Grand Prix ut?",
+    svar:["1970","1974","1975","1978"],
+    riktigSvar:"1975"  ,
+    picture: "../bilder/Kjell.jpg"
+},{
+    spørsmål:"Who is Black Beauty's friend?",
+    svar:["Duchess","Merrylegs","Ginger","Rory"],
+    riktigSvar:"Ginger",
+    picture: "../bilder/blackhorse.jpg"
 }];
 /*_________________________________________*/
 
