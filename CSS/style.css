@@ -25,24 +25,33 @@ body{
 /*________________________*/
 
 #question{
+    font-size: 20px;
     font-family: Cambria, Georgia, Times, 'Times New Roman', serif;
     color: var(--darkbrown);
     text-align: center;
 }
 
-#yeah{
-    width: 100%;
+
+#myPicture{
     border: 2px solid var(--darkbrown);
+    position: absolute;
+    top: 10%;
+    left: 28%;
+    bottom:26%;
+
+    width: 400px;
+    height: 350px;
+    object-fit: cover;
 }
 
 #endScreen{
-    border-radius: 9px 9px 9px 9px;
-    width:70%;
-    height: 30%;
+    border-radius: 9px;
+    width:80%;
+    height: 50%;
     position: absolute;
     top: 30%;
-    right: 15%;
-    left: 15%;
+    right: 10%;
+    left: 10%;
     z-index: -1;
 }
 #myText{
@@ -59,6 +68,14 @@ button.valg{
     margin: 4px;
     border: 1px solid var(--darkbrown);
     border-radius: 3px;
+}
+
+button{
+    font-family:'Times New Roman', Times, serif;
+    font-size: large;
+    border: 2px solid rgb(131, 25, 28);
+    border-radius: 3px;
+    background-color: rgb(251, 253, 255);
 
 }
 #optionContainer{
