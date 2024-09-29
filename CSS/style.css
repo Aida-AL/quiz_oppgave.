@@ -1,12 +1,17 @@
 
+
+
 body{
     background-color: var(--darkbrown);
 }
+
 :root{
   --darkbrown:rgb(51, 47, 47);
   --lightbrown: rgb(144, 123, 123);
   --pretty: rgb(146, 18, 67);
 }
+
+/*________________________*/
 
 #container{
  background-color:var(--lightbrown);
@@ -22,15 +27,16 @@ body{
  width:55%;
  height: 80%;
 }
-/*________________________*/
+/*___Spørsmål__________*/
 
-#question{
+#question{ 
     font-size: 20px;
     font-family: Cambria, Georgia, Times, 'Times New Roman', serif;
     color: var(--darkbrown);
     text-align: center;
 }
 
+/*____Bilde_____________*/
 
 #myPicture{
     border: 2px solid var(--darkbrown);
@@ -43,6 +49,8 @@ body{
     height: 350px;
     object-fit: cover;
 }
+
+/*_____Ending_screen__________*/
 
 #endScreen{
     border-radius: 9px;
