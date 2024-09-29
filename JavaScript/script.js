@@ -4,23 +4,28 @@ const nesteKnapp = document.getElementById("next");
 const valgKnapper = document.getElementById("options");
 const currentPicture =document.getElementById("myPicture")
 
-/*_________________________________________*/
+/*_________Neste_spørsmål_eller_replay_______________*/
 
     nesteKnapp.addEventListener("click" , event => {
+       
         spørmålIndex++
-        if (spørmålIndex < questions.length){
+      
+        if (spørmålIndex < questions.length){ /*Om vi er på et spørsmålsnummer under antall spørsmål kjøres display question igjen*/
             displayQuestion();}
-        else {            
+
+        else {  /*Hvis ikke, slutter spillet*/     
             let myText= document.getElementById("myText");
-            myText.innerHTML= "Gratulerer du fikk " + score + " av "+spørmålIndex+" mulige poeng!\n Vill du spille igjen?";
+            myText.innerHTML= "Congratulations you got " + score + " out of "+spørmålIndex+" questions correct! Would you like to play again?";
+          
             const rpScreen= document.getElementById("endScreen");
             rpScreen.style.backgroundColor = "rgb(255 127 127)"
-            
+           
             const playAgain = document.createElement("button");
             playAgain.innerHTML = "Play again"
             document.getElementById("replay").append(playAgain)
+            
             playAgain.addEventListener("click", ()=>{
-             window.location.reload();
+             window.location.reload();  /*Sikkert en ugunstig løsning, men det funker, og jeg er trøtt*/
             })
             hideQuiz()
         }
@@ -81,36 +86,39 @@ const questions = [{
     riktigSvar:"Ginger",
     picture: "../bilder/blackhorse.jpg"
 }];
-/*_________________________________________*/
+/*____________________________________________________________*/
 
-let spørmålIndex = 0;
-let score = 0;
+/*Variabler til å følge med på hvilket spørsmål vi er på, og antall riktige svar.*/
+
+let spørmålIndex = 0; /* Blir plusset med 1 hver gang nesteknappen blir trykt*/
+let score = 0; /* Blir plusset med 1 hver gang noen svarer riktig*/
+
 
 /*________Funksjoner____________*/
 
 function quiz(){
- spørmålIndex = 0;
+ spørmålIndex = 0; /*Denne koden ble unødvendig pga refresh for å replay*/
  score = 0;
  displayQuestion();
 }
 
 function displayQuestion() {
-    let currentQuestion = questions[spørmålIndex];
+    let currentQuestion = questions[spørmålIndex]; 
 
-    questionText.innerHTML = currentQuestion.spørsmål;
+    questionText.innerHTML = currentQuestion.spørsmål; /*Spørsmålet vi har kommet til blir printet på skjermen*/
     
-    currentPicture.src = currentQuestion.picture;
+    currentPicture.src = currentQuestion.picture; /*Samme, men med bilde*/
     
     valgKnapper.innerHTML = ""; 
 
-    for (let i = 0; i < currentQuestion.svar.length; i++) {
+    for (let i = 0; i < currentQuestion.svar.length; i++) { /*loop som skaper knapper for alle valgene*/
 
         const button = document.createElement("button");
         button.innerHTML = currentQuestion.svar[i];
 
         button.setAttribute("class", "valg");
         valgKnapper.appendChild(button);
-        button.addEventListener("click",svarSkjekk);
+        button.addEventListener("click",svarSkjekk); /*kjører svarskjekk funksjon når man trykker på en av knappene*/
          
 
     }
@@ -118,24 +126,33 @@ function displayQuestion() {
 }
 
 
-function svarSkjekk(event){
-    if (event.target.textContent === questions[spørmålIndex].riktigSvar) {
+function svarSkjekk(event){ /* Om det valget man trykker har samme tekst som riktig svar*/
+
+    if (event.target.textContent === questions[spørmålIndex].riktigSvar) { 
+
         event.target.style.backgroundColor = "lightgreen";
         score++
+
     } else {
+     
+        /*Om det er annerledes*/
         event.target.style.backgroundColor = "rgb(255 127 127)";
     }
 
+    /*Tar vekk eventlistener fra alle knappene etter man har trykt ett valg.*/
     const buttons = document.querySelectorAll(".valg");
     buttons.forEach(button => {
         button.removeEventListener("click", svarSkjekk);
-    });
+    }); 
+
 }
 
+/*"Tar vekk quiz elementene når quiz-en er ferdig.*/
 function hideQuiz(){
     document.getElementById("optionContainer").style.display = "none";
     nesteKnapp.style.display= "none";
     questionText.style.display="none";
     document.getElementById("myPicture").style.display="none";
 }
-quiz();
+
+quiz(); /*unødvendig2*/
